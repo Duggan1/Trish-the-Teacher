@@ -27,6 +27,7 @@ function Payment() {
         <label>
           Select Time of Session:
           <select value={timeC} onChange={handleTimeC}>
+            <option value=""></option>
             <option value="30">30 Minutes</option>
             <option value="60">1 Hour</option>
             {/* Add more payment options as needed */}
@@ -35,7 +36,8 @@ function Payment() {
         <label>
           Select Amount of Session:
           <select value={Amount} onChange={handleAmmount}>
-          <option value="1">1 Session</option>
+          <option value=""></option>
+            <option value="1">1 Session</option>
             <option value="5">5 Sessions</option>
             <option value="10">10 Sessions</option>
             <option value="20">20 Sessions</option>
