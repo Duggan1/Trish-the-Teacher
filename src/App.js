@@ -6,7 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Elijah from './Elijah';
 import Johnny from './Johnny';
 import Joey from './Joey';
-import Tommy from './Tommy'
+import Tommy from './Tommy';
+import Payment from './Payment';
 
 
 
@@ -38,6 +39,7 @@ function App() {
       <Route path="/joey" element={<Joey />} />
       <Route path="/tommy" element={<Tommy/>}/>
       <Route path="/elijah" element={<Elijah/>}/>
+      <Route path="/payment" element={<Payment/>}/>
       
        
     </Routes>

@@ -74,7 +74,13 @@ code {
   color:purple;
   text-decoration: wavy;
 }
-
+.color-orange {
+  color: orange;
+  text-decoration: wavy;
+}
+.payment {
+  text-align: center;
+}
 .apple {
   /* max-width: 100%; */
   min-width: 150px;

@@ -43,6 +43,7 @@ function NavBar() {
             <div className='swm'  onClick={() => handleOptionClick('/joey')}><NavLink className='color-yellow' exact to="/joey">Joey</NavLink></div>
             <div className='swm'  onClick={() => handleOptionClick('/tommy')}><NavLink className='color-green' exact to="/tommy">Tommy</NavLink></div>
             <div className='swm'  onClick={() => handleOptionClick('/elijah')}><NavLink className='color-purple' exact to="/elijah">Elijah</NavLink></div>
+            <div className='swm'  onClick={() => handleOptionClick('/payment')}><NavLink className='color-orange' exact to="/payment">Payment Options</NavLink></div>
           </div>
         )}
 
