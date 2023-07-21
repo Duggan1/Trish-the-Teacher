@@ -54,7 +54,7 @@ function App() {
   return (
     <BrowserRouter>
     <NavBar /> 
-    {user ? <h1>Hello {user.fullName}</h1>: <p>Please Login/Signup</p>}
+    <div className="App App-header">{user ? <h1>Hello {user.fullName}</h1>: <p></p>}</div>
     <Routes>
       <Route path="/" element={<Home/>} />
        
