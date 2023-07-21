@@ -40,9 +40,9 @@ function NavBar() {
           <div style={{backgroundColor:'darkred',padding:'2%',minWidth:'100%'}} className="dropdown-menu">
             <div className='swm'  onClick={() => handleOptionClick('/')}><NavLink className='color-red' exact to="/">Home</NavLink></div>
             <div className='swm2' onClick={() => handleOptionClick('/section1')}>  <NavLink className=' color-blue'  exact to="/section1">Login/Sign-up</NavLink></div>
-            <div className='swm'  onClick={() => handleOptionClick('/section2')}><NavLink className='color-yellow' exact to="/section2">Videos</NavLink></div>
-            <div className='swm'  onClick={() => handleOptionClick('/section3')}><NavLink className='color-green' exact to="/section3">Mas Content</NavLink></div>
-            <div className='swm'  onClick={() => handleOptionClick('/section4')}><NavLink className='color-purple' exact to="/section4">About</NavLink></div>
+            <div className='swm'  onClick={() => handleOptionClick('/section2')}><NavLink style={{textShadow:'0px 1px 8px rgb(0, 0, 0)'}} className='color-yellow' exact to="/section2">Videos</NavLink></div>
+            <div className='swm'  onClick={() => handleOptionClick('/section3')}><NavLink className='color-green' exact to="/section3">Content</NavLink></div>
+            <div className='swm'  onClick={() => handleOptionClick('/section4')}><NavLink className='color-purple' exact to="/section4">Experience </NavLink></div>
             <div className='swm'  onClick={() => handleOptionClick('/payment')}><NavLink className='color-orange' exact to="/payment">Payment Options</NavLink></div>
           </div>
         )}

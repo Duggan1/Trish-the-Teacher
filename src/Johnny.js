@@ -13,7 +13,7 @@ function Johnny({ onLogin }) {
     const [parentsEmail, setParentsEmail] = useState('');
     const [parentsPhoneNumber, setParentsPhoneNumber] = useState('');
     const [students, setStudents] = useState([]);
-    const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState([]);
 
     // Yup validation schema
     const validationSchema = yup.object().shape({
@@ -84,7 +84,7 @@ function Johnny({ onLogin }) {
             error.inner.forEach((error) => {
             validationErrors[error.path] = error.message;
             });
-            setErrors(validationErrors);
+            setErrors(error.message);
             
         }
     };
@@ -94,7 +94,7 @@ function Johnny({ onLogin }) {
     const toggleVideoVisibility = () => {
       setShowVideo(!showVideo);
     };
-    console.log(errors.message)
+    console.log(errors)
 
     return (
         <div className="johnny">
@@ -167,19 +167,12 @@ function Johnny({ onLogin }) {
                 <input type="tel" value={parentsPhoneNumber} onChange={(e) => setParentsPhoneNumber(e.target.value)} required /><br></br>
                 <button type="submit">Submit</button>
                 
-                {errors.userName && <p>{errors.userName}</p>}
-                {errors.password && <p>{errors.password}</p>}
-                {errors.fullName && <p>{errors.fullName}</p>}
-                {errors.age && <p>{errors.age}</p>}
-                {errors.school && <p>{errors.school}</p>}
-                {errors.bestSubject && <p>{errors.bestSubject}</p>}
-                {errors.worstSubject && <p>{errors.worstSubject}</p>}
-                {errors.parentsEmail && <p>{errors.parentsEmail}</p>}
-                {errors.parentsPhoneNumber && <p>{errors.parentsPhoneNumber}</p>}
+                {errors && <p className="errors" >{errors}</p>}
+                
 
 
 
-            </form> : <form style={{textAlign:'right',color:'white', marginRight:'35%'}} onSubmit={handleSubmit}>
+            </form> : <form style={{textAlign:'right',color:'white', marginRight:'35%',paddingBottom: '15%'}} onSubmit={handleSubmit}>
                 <label>UserName:</label>
                 <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)} required /><br></br>
                 <label>Password:</label>

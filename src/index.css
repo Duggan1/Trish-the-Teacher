@@ -134,6 +134,15 @@ code {
   padding-bottom: 15%;
 
 }
+.errors {
+  color: red;
+  font-weight: bolder;
+  font-size: large;
+  background-color: white;
+  border: 2px solid blue;
+  margin-left: 35%;
+  text-align: center;
+}
 .custom-checkbox {
   width: 340px;
   height: 80px;
