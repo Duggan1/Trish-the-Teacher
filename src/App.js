@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from './NavBar';
 import './App.css';
 import Home from './Home';
@@ -28,14 +28,37 @@ function App() {
     setShowDropdown(false);
   };
   console.log(showDropdown)
+  const [user, setUser] = useState(null);
+  const [signUp, setSignUp] = useState(false)
+  const handleSignupClick=() =>{
+        setSignUp(!signUp)
+    }
+  
+
+  useEffect(() => {
+    fetch("/check_session").then((response) => {
+      if (response.ok) {
+        response.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+
+  function handleLogin(user) {
+    setUser(user);
+}
+  function handleLogout(){
+    setUser(null);
+  }
+
 
   return (
     <BrowserRouter>
     <NavBar /> 
+    {user ? <h1>Hello {user.fullName}</h1>: <p>Please Login/Signup</p>}
     <Routes>
       <Route path="/" element={<Home/>} />
        
-      <Route path="/johnny" element={<Johnny />} />
+      <Route path="/johnny" element={<Johnny onLogin={handleLogin} onLogout={handleLogout} />} />
       <Route path="/joey" element={<Joey />} />
       <Route path="/tommy" element={<Tommy/>}/>
       <Route path="/elijah" element={<Elijah/>}/>

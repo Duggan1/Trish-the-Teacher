@@ -107,20 +107,86 @@ code {
 .eli{
   text-align: center;
   background-color: purple;
+  margin-bottom: 0%;
+  padding-bottom: 15%;
 
 }
 .tommy {
   text-align: center;
-  background-color: green
+  background-color: green;
+  margin-bottom: 0%;
+  padding-bottom: 15%;
 
 }
 .johnny {
   text-align: center;
-  background-color: blue
+  background-color: blue;
+  color: white;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  padding-bottom: 15%;
 
 }
 .joey {
   text-align: center;
-  background-color: goldenrod
+  background-color: goldenrod;
+  margin-bottom: 0%;
+  padding-bottom: 15%;
 
+}
+.custom-checkbox {
+  width: 340px;
+  height: 80px;
+}
+.custom-checkbox input#status {
+  display: none;
+}
+.custom-checkbox input#status + label {
+  height: 100%;
+  width: 100%;
+}
+.custom-checkbox input#status + label > .status-switch {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: grey;
+  color: white;
+  transition: all 0.5s ease;
+  padding: 3px;
+  border-radius: 3px;
+}
+.custom-checkbox input#status + label > .status-switch:before, .custom-checkbox input#status + label > .status-switch:after {
+  border-radius: 2px;
+  height: calc(100% - 6px);
+  width: calc(50% - 3px);
+  display: flex;
+  align-items: center;
+  position: absolute;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.custom-checkbox input#status + label > .status-switch:before {
+  background-color: white;
+  color: black;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.2);
+  left: 3px;
+  z-index: 10;
+  content: attr(data-unchecked);
+}
+.custom-checkbox input#status + label > .status-switch:after {
+  right: 0;
+  content: attr(data-checked);
+}
+.custom-checkbox input#status:checked + label > .status-switch {
+  background-color: #40c253;
+}
+.custom-checkbox input#status:checked + label > .status-switch:after {
+  left: 0;
+  content: attr(data-unchecked);
+}
+.custom-checkbox input#status:checked + label > .status-switch:before {
+  color: #40c253;
+  left: 50%;
+  content: attr(data-checked);
 }
