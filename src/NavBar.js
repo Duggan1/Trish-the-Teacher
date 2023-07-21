@@ -39,10 +39,10 @@ function NavBar() {
         {showDropdown && (
           <div style={{backgroundColor:'darkred',padding:'2%',minWidth:'100%'}} className="dropdown-menu">
             <div className='swm'  onClick={() => handleOptionClick('/')}><NavLink className='color-red' exact to="/">Home</NavLink></div>
-            <div className='swm2' onClick={() => handleOptionClick('/johnny')}>  <NavLink className=' color-blue'  exact to="/johnny">Johnny</NavLink></div>
-            <div className='swm'  onClick={() => handleOptionClick('/joey')}><NavLink className='color-yellow' exact to="/joey">Joey</NavLink></div>
-            <div className='swm'  onClick={() => handleOptionClick('/tommy')}><NavLink className='color-green' exact to="/tommy">Tommy</NavLink></div>
-            <div className='swm'  onClick={() => handleOptionClick('/elijah')}><NavLink className='color-purple' exact to="/elijah">Elijah</NavLink></div>
+            <div className='swm2' onClick={() => handleOptionClick('/johnny')}>  <NavLink className=' color-blue'  exact to="/johnny">Login/Sign-up</NavLink></div>
+            <div className='swm'  onClick={() => handleOptionClick('/joey')}><NavLink className='color-yellow' exact to="/joey">Videos</NavLink></div>
+            <div className='swm'  onClick={() => handleOptionClick('/tommy')}><NavLink className='color-green' exact to="/tommy">Mas Content</NavLink></div>
+            <div className='swm'  onClick={() => handleOptionClick('/elijah')}><NavLink className='color-purple' exact to="/elijah">About</NavLink></div>
             <div className='swm'  onClick={() => handleOptionClick('/payment')}><NavLink className='color-orange' exact to="/payment">Payment Options</NavLink></div>
           </div>
         )}

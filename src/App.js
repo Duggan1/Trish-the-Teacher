@@ -58,10 +58,10 @@ function App() {
     <Routes>
       <Route path="/" element={<Home/>} />
        
-      <Route path="/johnny" element={<Johnny onLogin={handleLogin} onLogout={handleLogout} />} />
-      <Route path="/joey" element={<Joey />} />
-      <Route path="/tommy" element={<Tommy/>}/>
-      <Route path="/elijah" element={<Elijah/>}/>
+      <Route path="/section1" element={<Johnny onLogin={handleLogin} onLogout={handleLogout} />} />
+      <Route path="/section2" element={<Joey />} />
+      <Route path="/section3" element={<Tommy/>}/>
+      <Route path="/section4" element={<Elijah/>}/>
       <Route path="/payment" element={<Payment/>}/>
       
        
