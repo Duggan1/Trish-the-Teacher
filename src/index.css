@@ -134,6 +134,60 @@ code {
   padding-bottom: 15%;
 
 }
+input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+}
+input[type='checkbox'] {
+  border: 2px solid #333;
+}
+/* Unchecked */
+input[type='checkbox']:not(:checked) {
+  background-color: #fff;
+}
+
+/* Checked */
+input[type='checkbox']:checked {
+  background-color: #007bff;
+}
+/* Hide default checkbox */
+input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Use a custom icon */
+input[type='checkbox'] + label::before {
+  content: '\2713'; /* Checkmark icon Unicode */
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  border: 1px solid #333;
+}
+
+/* Style the label */
+input[type='checkbox'] + label {
+  cursor: pointer;
+}
+
+/* Hide the default checkbox */
+input[type='checkbox'] {
+  opacity: 0;
+  position: absolute;
+}
+
+/* Show the custom icon when the checkbox is checked */
+input[type='checkbox']:checked + label::before {
+  background-color: #007bff;
+  color: #fff;
+}
+
+
+
+
+
 .errors {
   color: red;
   font-weight: bolder;
