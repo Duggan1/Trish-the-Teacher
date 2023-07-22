@@ -158,14 +158,6 @@ input[type='checkbox'] {
 }
 
 /* Use a custom icon */
-input[type='checkbox'] + label::before {
-  content: '\2713'; /* Checkmark icon Unicode */
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  text-align: center;
-  border: 1px solid #333;
-}
 
 /* Style the label */
 input[type='checkbox'] + label {
@@ -175,14 +167,14 @@ input[type='checkbox'] + label {
 /* Hide the default checkbox */
 input[type='checkbox'] {
   opacity: 0;
-  position: absolute;
+  /* position: absolute; */
 }
 
 /* Show the custom icon when the checkbox is checked */
-input[type='checkbox']:checked + label::before {
+/* input[type='checkbox']:checked + label::before {
   background-color: #007bff;
-  color: #fff;
-}
+  color: blue;
+} */
 
 
 
