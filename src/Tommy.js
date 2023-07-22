@@ -2,70 +2,101 @@ import React, { useState } from "react";
 import './App.css';
 
 function Tommy({ user }) {
-  const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-  const timeSlots = ['3 PM', '4 PM', '5 PM', '6 PM', '7 PM'];
+  const initialSchedule = {
+    Monday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+    Tuesday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+    Wednesday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+    Thursday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+    Friday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+  };
 
-  const [schedule, setSchedule] = useState(
-    daysOfWeek.reduce((acc, day) => {
-      const daySlots = timeSlots.map(time => ({ day, time, reserved: false }));
-      return [...acc, ...daySlots];
-    }, [])
-  );
+  const [weeks, setWeeks] = useState([initialSchedule, initialSchedule, initialSchedule, initialSchedule, initialSchedule]);
+  const [currentWeekIndex, setCurrentWeekIndex] = useState(0); // Set to 0 initially
 
   const handleReservation = (day, time) => {
-    const updatedSchedule = schedule.map(slot =>
-      slot.day === day && slot.time === time ? { ...slot, reserved: !slot.reserved } : slot
-    );
-    setSchedule(updatedSchedule);
+    const updatedWeeks = [...weeks];
+    updatedWeeks[currentWeekIndex][day][time] = !updatedWeeks[currentWeekIndex][day][time];
+    setWeeks(updatedWeeks);
+  };
+
+  const switchToWeek = (index) => {
+    setCurrentWeekIndex(index);
   };
 
   return (
     <div className="tommy">
-      <h1 style={{ marginTop: '0%' }}>3</h1>
-      <h2>Content coming soon!</h2>
-      <h2>Schedule:</h2>
-      <div className="schedule">
-        <table>
-          <thead>
-            <tr>
-              <th>Time</th>
-              {daysOfWeek.map(day => <th key={day}>{day}</th>)}
-            </tr>
-          </thead>
-          <tbody>
-            {timeSlots.map(time => (
-              <tr key={time}>
-                <td>{time}</td>
-                {daysOfWeek.map(day => {
-                  const slot = schedule.find(slot => slot.day === day && slot.time === time);
-                  return (
-                    <td key={`${day}-${time}`}>
-                      <div style={{ display: 'inline-block', marginBottom: '5%' }} className="custom-checkbox">
-                        <input
-                          type='checkbox'
-                          checked={slot.reserved}
-                          onChange={() => handleReservation(day, time)}
-                          disabled={user && slot.reserved}
-                        />
-                        <label style={{}} htmlFor={`${day}-${time}`}>
-                          <div
-                            className={`status-switch ${slot.reserved ? 'checked' : ''}`}
-                            data-unchecked="Available"
-                            data-checked="Reserved"
-                          ></div>
-                        </label>
-                      </div>
-                    </td>
-                  );
-                })}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <h1 style={{ marginTop: '0%' }}>Week {currentWeekIndex + 1}</h1>
+      <h2>Schedule</h2>
+      <div>
+        <button onClick={() => switchToWeek(0)}>Week 1</button>
+        <button onClick={() => switchToWeek(1)}>Week 2</button>
+        <button onClick={() => switchToWeek(2)}>Week 3</button>
+        <button onClick={() => switchToWeek(3)}>Week 4</button>
+        <button onClick={() => switchToWeek(4)}>Week 5</button>
       </div>
+      <table style={{ backgroundColor: '#282c34', color: 'white', minWidth: '100%' }}>
+        <thead>
+          <tr>
+            <th>Time</th>
+            {Object.keys(weeks[0]).map(day => <th key={day}>{day}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {Object.keys(weeks[0].Monday).map(time => (
+            <tr key={time}>
+              <td>{time}</td>
+              {Object.keys(weeks[currentWeekIndex]).map(day => (
+                <td key={`${day}-${time}`}>
+                  <button
+                    className={`reservation-button ${weeks[currentWeekIndex][day][time] ? 'reserved' : ''}`}
+                    onClick={() => handleReservation(day, time)}
+                    disabled={user && weeks[currentWeekIndex][day][time]}
+                    style={{
+                      padding: '20px',
+                      backgroundColor: weeks[currentWeekIndex][day][time] ? 'red' : 'green',
+                      color: 'white',
+                    }}
+                  >
+                    {weeks[currentWeekIndex][day][time] ? 'Reserved' : 'Available'}
+                  </button>
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
 
 export default Tommy;
-

@@ -113,7 +113,8 @@ code {
 }
 .tommy {
   text-align: center;
-  background-color: green;
+  background-color: black;
+  color:green;
   margin-bottom: 0%;
   padding-bottom: 15%;
 
@@ -133,6 +134,15 @@ code {
   margin-bottom: 0%;
   padding-bottom: 15%;
 
+}
+.errors {
+  color: red;
+  font-weight: bolder;
+  font-size: large;
+  background-color: white;
+  border: 2px solid blue;
+  margin-left: 35%;
+  text-align: center;
 }
 input[type='checkbox'] {
   width: 20px;
@@ -180,15 +190,7 @@ input[type='checkbox'] {
 
 
 
-.errors {
-  color: red;
-  font-weight: bolder;
-  font-size: large;
-  background-color: white;
-  border: 2px solid blue;
-  margin-left: 35%;
-  text-align: center;
-}
+
 .custom-checkbox {
   width: 340px;
   height: 80px;
