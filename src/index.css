@@ -128,6 +128,9 @@ code {
   padding-bottom: 15%;
 
 }
+#basement{
+  padding: 20px;
+}
 .joey {
   text-align: center;
   background-color: goldenrod;
@@ -246,4 +249,19 @@ input[type='checkbox'] {
   color: #40c253;
   left: 50%;
   content: attr(data-checked);
+}
+
+
+
+
+
+@media (max-width: 767px) {
+  #basement{
+    padding: 20px 0px;
+  }
+
+
+
+
+
 }

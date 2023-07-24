@@ -2,7 +2,155 @@ import React, { useState } from "react";
 import './App.css';
 
 function Tommy({ user }) {
-  const initialSchedule = {
+  const week1 = {
+    Monday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+    Tuesday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+    Wednesday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+    Thursday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+    Friday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+  };
+  const week2 = {
+    Monday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+    Tuesday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+    Wednesday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+    Thursday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+    Friday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+  };
+  const week3 = {
+    Monday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+    Tuesday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+    Wednesday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+    Thursday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+    Friday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    }, 
+  };
+  const week4 = {
+    Monday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+    Tuesday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+    Wednesday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+    Thursday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+    Friday: {
+      "3 PM": false,
+      "4 PM": false,
+      "5 PM": false,
+      "6 PM": false,
+      "7 PM": false,
+    },
+  };
+  const week5 = {
     Monday: {
       "3 PM": false,
       "4 PM": false,
@@ -40,7 +188,7 @@ function Tommy({ user }) {
     },
   };
 
-  const [weeks, setWeeks] = useState([initialSchedule, initialSchedule, initialSchedule, initialSchedule, initialSchedule]);
+  const [weeks, setWeeks] = useState([week1, week2, week3, week4, week5]);
   const [currentWeekIndex, setCurrentWeekIndex] = useState(0); // Set to 0 initially
 
   const handleReservation = (day, time) => {
@@ -58,13 +206,13 @@ function Tommy({ user }) {
       <h1 style={{ marginTop: '0%' }}>Week {currentWeekIndex + 1}</h1>
       <h2>Schedule</h2>
       <div>
-        <button onClick={() => switchToWeek(0)}>Week 1</button>
-        <button onClick={() => switchToWeek(1)}>Week 2</button>
-        <button onClick={() => switchToWeek(2)}>Week 3</button>
-        <button onClick={() => switchToWeek(3)}>Week 4</button>
-        <button onClick={() => switchToWeek(4)}>Week 5</button>
+        <button onClick={() => switchToWeek(0)}>Aug 14</button>
+        <button onClick={() => switchToWeek(1)}>Aug 21</button>
+        <button onClick={() => switchToWeek(2)}>Aug 28</button>
+        <button onClick={() => switchToWeek(3)}>September 4</button>
+        <button onClick={() => switchToWeek(4)}>September 11</button>
       </div>
-      <table style={{ backgroundColor: '#282c34', color: 'white', minWidth: '100%' }}>
+      <table style={{ backgroundColor: '#282c34', color: 'white', minWidth: '100%',maxWidth:'100%' }}>
         <thead>
           <tr>
             <th>Time</th>
@@ -81,8 +229,9 @@ function Tommy({ user }) {
                     className={`reservation-button ${weeks[currentWeekIndex][day][time] ? 'reserved' : ''}`}
                     onClick={() => handleReservation(day, time)}
                     disabled={user && weeks[currentWeekIndex][day][time]}
+                    id='basement'
                     style={{
-                      padding: '20px',
+                
                       backgroundColor: weeks[currentWeekIndex][day][time] ? 'red' : 'green',
                       color: 'white',
                     }}
