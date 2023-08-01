@@ -13,7 +13,7 @@ function Joey() {
        <iframe width="560" height="315" src="https://www.youtube.com/embed/PRpiBpDy7MQ" frameborder="0" allowfullscreen></iframe>
             <p>for development purposes</p>
             <p>for development purposes</p>
-            <iframe style={{ borderRadius: '25%', width: '400px', height: '240px', border: 'yellow 5px solid' }} width="560" height="315" src="https://www.youtube.com/embed/PRpiBpDy7MQ" frameborder="0" allowfullscreen></iframe>
+            <iframe style={{ borderRadius: '25%', width: '400px',maxWidth:'90%', height: '240px', border: 'yellow 5px solid' }} width="560" height="315" src="https://www.youtube.com/embed/PRpiBpDy7MQ" frameborder="0" allowfullscreen></iframe>
             <p>for development purposes</p>
             <p>for development purposes</p>
             <p>for development purposes</p>

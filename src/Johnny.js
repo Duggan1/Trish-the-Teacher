@@ -135,7 +135,7 @@ function Johnny({ onLogin }) {
 
                 <label>
                     Best Subject:
-                    <select value={bestSubject} onChange={(e) => setBestSubject(e.target.value)}>
+                    <select style={{ backgroundColor: 'white',borderRadius: '0px',padding: '3px',width: '54%',appearance: 'listbox'}} value={bestSubject} onChange={(e) => setBestSubject(e.target.value)}>
                         <option value=""></option>
                         <option value="Math">Math</option>
                         <option value="Science">Science</option>
@@ -151,7 +151,7 @@ function Johnny({ onLogin }) {
 
                 <label>
                     Worst Subject:
-                    <select value={worstSubject} onChange={(e) => setWorstSubject(e.target.value)}>
+                    <select style={{ backgroundColor: 'white',borderRadius: '0px',padding: '3px',width: '54%',appearance: 'listbox'}} value={worstSubject} onChange={(e) => setWorstSubject(e.target.value)}>
                         <option value=""></option>
                         <option value="Math">Math</option>
                         <option value="Science">Science</option>
