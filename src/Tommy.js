@@ -33,7 +33,7 @@ function Tommy({ user }) {
     "April 16", "April 23", "April 30", "May 7", "May 14",
     "May 21", "May 28", "June 4", "June 11", "June 18",
     "June 25", "July 2", "July 9", "July 16", "July 23",
-    "July 30", "August 6", "August 13",
+    "July 30", "August 6", 
   ];
   const weekDays = [
     // August
@@ -138,6 +138,10 @@ function Tommy({ user }) {
     ["Jul 23", "Jul 24", "Jul 25", "Jul 26", "Jul 27"],
     // July 30 to August 3
     ["Jul 30", "Jul 31", "Aug 1", "Aug 2", "Aug 3"],
+    ["Aug 6", "Aug 7", "Aug 8", "Aug 9", "Aug 10"],
+  
+    
+
   ];
   
   
@@ -159,14 +163,15 @@ function Tommy({ user }) {
 
   return (
     <div className="tommy">
-      <h1 style={{ marginTop: '0%', }}>{weekDates[currentWeekIndex]}</h1>
       
-      <select style={{width:'40%'}} className="arrows" value={currentWeekIndex} onChange={(e) => switchToWeek(parseInt(e.target.value))}>
+      <h2 style={{ marginTop: '0%',backgroundColor:'gold',color:'black' }}>Click to schedule below</h2>
+      <select style={{width:'50%', }} className="arrows" value={currentWeekIndex} onChange={(e) => switchToWeek(parseInt(e.target.value))}>
       {weekDates.map((date, index) => (
         <option key={index} value={index}>{date}</option>
       ))}
     </select>
-    <h2 style={{ marginBottom: '0%',color:'gold' }}>Click to schedule below</h2>
+    <h1 style={{ marginBottom: '0%',backgroundColor:'darkgreen',color:'white' }}>{weekDates[currentWeekIndex].slice(0,-2)}</h1>
+    
       <table style={{ backgroundColor: '#282c34', color: 'white', minWidth: '100%',maxWidth:'100%' }}>
         <thead>
         <tr>
@@ -207,6 +212,8 @@ function Tommy({ user }) {
           ))}
         </tbody>
       </table>
+      
+      
     </div>
   );
 }

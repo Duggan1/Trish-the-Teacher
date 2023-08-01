@@ -10,13 +10,10 @@ function Joey() {
         < div className="joey" >
        <h1 style={{marginTop:'0%'}}>Pt. 2</h1>
        <h2>content coming soon! </h2>
-       <iframe width="560" height="315" src="https://www.youtube.com/embed/PRpiBpDy7MQ" frameborder="0" allowfullscreen></iframe>
+       <iframe style={{ borderRadius: '25%', width: '400px',maxWidth:'90%', height: '240px', border: 'yellow 5px solid' }} width="560" height="315" src="https://www.youtube.com/embed/PRpiBpDy7MQ" frameborder="0" allowfullscreen></iframe>
             <p>for development purposes</p>
             <p>for development purposes</p>
-            <iframe style={{ borderRadius: '25%', width: '400px',maxWidth:'90%', height: '240px', border: 'yellow 5px solid' }} width="560" height="315" src="https://www.youtube.com/embed/PRpiBpDy7MQ" frameborder="0" allowfullscreen></iframe>
-            <p>for development purposes</p>
-            <p>for development purposes</p>
-            <p>for development purposes</p>
+            <iframe style={{ borderRadius: '35%', width: '400px',maxWidth:'%', height: '140px', border: 'red 5px dotted' }} width="560" height="315" src="https://www.youtube.com/embed/PRpiBpDy7MQ" frameborder="0" allowfullscreen></iframe>
             <p>for development purposes</p>
             <p>for development purposes</p>
             <p>for development purposes</p>
@@ -28,6 +25,10 @@ function Joey() {
             <p>for development purposes</p>
             <p>for development purposes</p>
             <p>for development purposes</p>
+            <p>for development purposes</p>
+            <p>for development purposes</p>
+            <p>for development purposes</p>
+            <iframe style={{maxWidth:'95%',  }} width="560" height="315" src="https://www.youtube.com/embed/PRpiBpDy7MQ" frameborder="0" allowfullscreen></iframe>
             <p>for development purposes</p>
             <p>for development purposes</p>
             <p>for development purposes</p>

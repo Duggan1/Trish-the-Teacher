@@ -126,7 +126,7 @@ function Johnny({ onLogin }) {
 
                 <label>Full Name:</label>
                 <input type="text" value={fullName} onChange={(e) => setFullName(e.target.value)} required /><br></br>
-                <label>Student's Age:</label>
+                <label className="schead">Student's Age:</label>
                 <input type="number" value={age} onChange={(e) => setAge(e.target.value)} required /><br></br>
                 <label>School:</label>
                 <input type="text" value={school} onChange={(e) => setSchool(e.target.value)} required /><br></br>
@@ -161,9 +161,9 @@ function Johnny({ onLogin }) {
                     </select>
                     </label><br></br>
 
-                <label>Parents' Email:</label>
+                <label className="schead">Parents' Email:</label>
                 <input type="email" value={parentsEmail} onChange={(e) => setParentsEmail(e.target.value)} required /><br></br>
-                <label>Parents' Phone #:</label>
+                <label className="schead">Parents' Phone #:</label>
                 <input type="tel" value={parentsPhoneNumber} onChange={(e) => setParentsPhoneNumber(e.target.value)} required /><br></br>
                 <button type="submit">Submit</button>
                 
