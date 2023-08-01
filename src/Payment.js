@@ -35,7 +35,7 @@ function Payment() {
         </label><br></br>
         <label>
           Select Amount of Session:
-          <select value={Amount} onChange={handleAmmount}>
+          <select id="nono" value={Amount} onChange={handleAmmount}>
           <option value=""></option>
             <option value="1">1 Session</option>
             <option value="5">5 Sessions</option>

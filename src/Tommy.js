@@ -165,12 +165,12 @@ function Tommy({ user }) {
     <div className="tommy">
       
       <h2 style={{ marginTop: '0%',backgroundColor:'gold',color:'black' }}>Click to schedule below</h2>
-      <select style={{width:'50%', }} className="arrows" value={currentWeekIndex} onChange={(e) => switchToWeek(parseInt(e.target.value))}>
+      <select id='select' style={{width:'50%', }} className="arrows" value={currentWeekIndex} onChange={(e) => switchToWeek(parseInt(e.target.value))}>
       {weekDates.map((date, index) => (
         <option key={index} value={index}>{date}</option>
       ))}
     </select>
-    <h1 style={{ marginBottom: '0%',backgroundColor:'darkgreen',color:'white' }}>{weekDates[currentWeekIndex].slice(0,-2)}</h1>
+    <h1 style={{ marginBottom: '0%',backgroundColor:'white',color:'#282c34',borderTop:' 35px solid #282c34',borderRight:'45px solid #282c34',borderLeft:'45px solid #282c34', }}>{weekDates[currentWeekIndex].slice(0,-2)}</h1>
     
       <table style={{ backgroundColor: '#282c34', color: 'white', minWidth: '100%',maxWidth:'100%' }}>
         <thead>

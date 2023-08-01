@@ -250,7 +250,7 @@ input[type='checkbox'] {
   left: 50%;
   content: attr(data-checked);
 }
-select {
+#select {
   background-color: rgb(223, 201, 201);
   border: thin solid grey;
   border-radius: 4px;
@@ -264,7 +264,21 @@ select {
   -webkit-appearance: none;
   /* -moz-appearance: none; */
 }
-select.arrows {
+#nono {
+  background-color: rgb(255, 255, 255);
+  /* border: none; */
+  border-radius: 0px;
+  display: auto;
+  font: auto;
+  line-height: auto;
+  padding: auto;
+  /* -webkit-box-sizing: border-box;
+  -moz-box-sizing: none;
+  box-sizing: none;
+  -webkit-appearance: none;
+  -moz-appearance: none; */
+}
+#select.arrows {
   background-image:    url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA3klEQVRIS+3VMU9CMRTF8d8zBL+aizoQFhx0kUk33RzdYMNFXUFnYeGrYYyaJiUxJHDLSxodbNKpfeffc9/pbaPyaCrr+3OA++z4rtT5Pg5GuMnCY9yWQEoBE1xhlUUP8YDrCBIB0vojLvGO0yz4hm4JJAKcYYoPHGOZAUdYoIMBXrc5iQAHeMlzviFygj7O8dkWEJU4XI8chALRhn9AVKHf70VRTHu4wFfbmKZLNKt50dLBnna0imcMd/2I0phWa3Y/D1e1Xa9BCZJG0VuQNpaWKMx72xS1Fl5/WN3BN+AgJhnZQlq4AAAAAElFTkSuQmCC');
   background-position: calc(100% - .5rem), 100% 0;
   background-size:  1.5em 1.5em;
@@ -273,7 +287,7 @@ select.arrows {
   
 }
 
-select.arrows:focus {
+#select.arrows:focus {
   border-color: blue;
   outline: 0;
 }
@@ -287,7 +301,8 @@ select.arrows:focus {
     padding: 20px 0px;
   }
   .schead {
-    font-size: small;
+    font-size: 9px;
+    font-weight: 600;
   }
 
 

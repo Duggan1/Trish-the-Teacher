@@ -135,7 +135,7 @@ function Johnny({ onLogin }) {
 
                 <label>
                     Best Subject:
-                    <select style={{ backgroundColor: 'white',borderRadius: '0px',padding: '3px',width: '54%',appearance: 'listbox'}} value={bestSubject} onChange={(e) => setBestSubject(e.target.value)}>
+                    <select style={{ backgroundColor: 'white',borderRadius: '0px',padding: '3px',paddingLeft: '3%',appearance: 'listbox'}} value={bestSubject} onChange={(e) => setBestSubject(e.target.value)}>
                         <option value=""></option>
                         <option value="Math">Math</option>
                         <option value="Science">Science</option>
@@ -151,7 +151,7 @@ function Johnny({ onLogin }) {
 
                 <label>
                     Worst Subject:
-                    <select style={{ backgroundColor: 'white',borderRadius: '0px',padding: '3px',width: '54%',appearance: 'listbox'}} value={worstSubject} onChange={(e) => setWorstSubject(e.target.value)}>
+                    <select style={{ backgroundColor: 'white',borderRadius: '0px',padding: '3px',paddingLeft:'3%',appearance: 'listbox'}} value={worstSubject} onChange={(e) => setWorstSubject(e.target.value)}>
                         <option value=""></option>
                         <option value="Math">Math</option>
                         <option value="Science">Science</option>
@@ -165,7 +165,7 @@ function Johnny({ onLogin }) {
                 <input type="email" value={parentsEmail} onChange={(e) => setParentsEmail(e.target.value)} required /><br></br>
                 <label className="schead">Parents' Phone #:</label>
                 <input type="tel" value={parentsPhoneNumber} onChange={(e) => setParentsPhoneNumber(e.target.value)} required /><br></br>
-                <button type="submit">Submit</button>
+                <button style={{marginRight:'17%',minWidth:'10%'}} type="submit">Submit</button>
                 
                 {errors && <p className="errors" >{errors}</p>}
                 
