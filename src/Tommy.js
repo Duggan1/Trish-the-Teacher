@@ -188,6 +188,22 @@ function Tommy({ user }) {
     },
   };
 
+
+  const weekDates = [
+    "Aug 14", "Aug 21", "Aug 28", "Sep 4", "Sep 11",
+    "Sep 18", "Sep 25", "Oct 2", "Oct 9", "Oct 16",
+    "Oct 23", "Oct 30", "Nov 6", "Nov 13", "Nov 20",
+    "Nov 27", "Dec 4", "Dec 11", "Dec 18", "Dec 25",
+    "Jan 1", "Jan 8", "Jan 15", "Jan 22", "Jan 29",
+    "Feb 5", "Feb 12", "Feb 19", "Feb 26", "Mar 5",
+    "Mar 12", "Mar 19", "Mar 26", "Apr 2", "Apr 9",
+    "Apr 16", "Apr 23", "Apr 30", "May 7", "May 14",
+    "May 21", "May 28", "Jun 4", "Jun 11", "Jun 18",
+    "Jun 25", "Jul 2", "Jul 9", "Jul 16", "Jul 23",
+    "Jul 30", "Aug 6", "Aug 13",
+  ];
+  
+ 
   const [weeks, setWeeks] = useState([week1, week2, week3, week4, week5]);
   const [currentWeekIndex, setCurrentWeekIndex] = useState(0); // Set to 0 initially
 
@@ -200,23 +216,24 @@ function Tommy({ user }) {
   const switchToWeek = (index) => {
     setCurrentWeekIndex(index);
   };
-
+  // console.log(currentWeekIndex)
+  // console.log(weekDates[currentWeekIndex] )
   return (
     <div className="tommy">
-      <h1 style={{ marginTop: '0%' }}>Week {currentWeekIndex + 1}</h1>
+      <h1 style={{ marginTop: '0%' }}>{weekDates[currentWeekIndex] }</h1>
       <h2>Schedule</h2>
       <div>
-        <button onClick={() => switchToWeek(0)}>Aug 14</button>
-        <button onClick={() => switchToWeek(1)}>Aug 21</button>
-        <button onClick={() => switchToWeek(2)}>Aug 28</button>
-        <button onClick={() => switchToWeek(3)}>September 4</button>
-        <button onClick={() => switchToWeek(4)}>September 11</button>
+        <button onClick={() => switchToWeek(0)}>{weekDates[0]}</button>
+        <button onClick={() => switchToWeek(1)}>{weekDates[1]}</button>
+        <button onClick={() => switchToWeek(2)}>{weekDates[2]}</button>
+        <button onClick={() => switchToWeek(3)}>{weekDates[3]}</button>
+        <button onClick={() => switchToWeek(4)}>{weekDates[4]}</button>
       </div>
       <table style={{ backgroundColor: '#282c34', color: 'white', minWidth: '100%',maxWidth:'100%' }}>
         <thead>
           <tr>
-            <th>Time</th>
-            {Object.keys(weeks[0]).map(day => <th key={day}>{day}</th>)}
+            <th className="schead">Time</th>
+            {Object.keys(weeks[0]).map(day => <th className="schead" key={day}>{day}</th>)}
           </tr>
         </thead>
         <tbody>

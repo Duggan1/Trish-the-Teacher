@@ -259,6 +259,9 @@ input[type='checkbox'] {
   #basement{
     padding: 20px 0px;
   }
+  .schead {
+    font-size: small;
+  }
 
 
 
