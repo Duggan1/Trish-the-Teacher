@@ -135,7 +135,7 @@ function Johnny({ onLogin }) {
 
                 <label>
                     Best Subject:
-                    <select style={{ backgroundColor: 'white',borderRadius: '0px',padding: '3px',paddingLeft: '3%',appearance: 'listbox'}} value={bestSubject} onChange={(e) => setBestSubject(e.target.value)}>
+                    <select style={{ backgroundColor: 'white',padding: '3px',paddingLeft: '3%',appearance: 'listbox'}} value={bestSubject} onChange={(e) => setBestSubject(e.target.value)}>
                         <option value=""></option>
                         <option value="Math">Math</option>
                         <option value="Science">Science</option>
@@ -151,7 +151,7 @@ function Johnny({ onLogin }) {
 
                 <label>
                     Worst Subject:
-                    <select style={{ backgroundColor: 'white',borderRadius: '0px',padding: '3px',paddingLeft:'3%',appearance: 'listbox'}} value={worstSubject} onChange={(e) => setWorstSubject(e.target.value)}>
+                    <select style={{ backgroundColor: 'white',padding: '3px',paddingLeft:'3%',appearance: 'listbox'}} value={worstSubject} onChange={(e) => setWorstSubject(e.target.value)}>
                         <option value=""></option>
                         <option value="Math">Math</option>
                         <option value="Science">Science</option>
@@ -167,7 +167,8 @@ function Johnny({ onLogin }) {
                 <input type="tel" value={parentsPhoneNumber} onChange={(e) => setParentsPhoneNumber(e.target.value)} required /><br></br>
                 <button style={{marginRight:'17%',minWidth:'10%'}} type="submit">Submit</button>
                 
-                {errors && <p className="errors" >{errors}</p>}
+                {errors && (<p className="errors" style={{ border: errors.length > 1 ? '2px solid darkred' : 'none' }}>{errors} </p>)}
+
                 
 
 
@@ -176,7 +177,7 @@ function Johnny({ onLogin }) {
                 <label>UserName:</label>
                 <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)} required /><br></br>
                 <label>Password:</label>
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required /><br></br></form> 
+                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required /><br></br><button style={{marginRight:'17%',minWidth:'10%'}} type="submit">Login</button></form> 
                 }
 
 

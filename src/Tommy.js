@@ -164,15 +164,12 @@ function Tommy({ user }) {
   return (
     <div className="tommy">
       
-      <h2 style={{ marginTop: '0%',backgroundColor:'gold',color:'black' }}>Click to schedule below</h2>
-      <select id='select' style={{width:'50%',marginBottom: '5%' }} className="arrows" value={currentWeekIndex} onChange={(e) => switchToWeek(parseInt(e.target.value))}>
-      {weekDates.map((date, index) => (
-        <option key={index} value={index}>{date}</option>
-      ))}
-    </select>
+      <h2 style={{ marginTop: '0%',marginBottom: '0%',backgroundColor:'gold',color:'black' }}>Click to schedule below</h2>
+     
     
-    
-      <table style={{ backgroundColor: '#282c34', color: 'white', minWidth: '100%',maxWidth:'100%' }}>
+    <h1 style={{marginTop: '0%',marginBottom: '0%', backgroundColor:'white',color:'#282c34',borderTop:' 15px solid #282c34',borderBottom:' 35px solid #282c34',borderRight:'45px solid #282c34',borderLeft:'45px solid #282c34', }}>{weekDates[currentWeekIndex].slice(0,-2)}</h1>
+      
+      <table style={{ backgroundColor: '#282c34', color: 'white', minWidth: '100%',maxWidth:'100%',paddingBottom:'5%' }}>
         <thead>
         <tr>
           <td></td>
@@ -211,8 +208,12 @@ function Tommy({ user }) {
             </tr>
           ))}
         </tbody>
-      </table>
-      <h1 style={{ marginTop: '0%',backgroundColor:'white',color:'#282c34',borderTop:' 15px solid #282c34',borderBottom:' 35px solid #282c34',borderRight:'45px solid #282c34',borderLeft:'45px solid #282c34', }}>{weekDates[currentWeekIndex].slice(0,-2)}</h1>
+      </table> 
+      <select id='select' style={{width:'50%',marginBottom: '50%',marginTop: '0%' }} className="arrows" value={currentWeekIndex} onChange={(e) => switchToWeek(parseInt(e.target.value))}>
+      {weekDates.map((date, index) => (
+        <option key={index} value={index}>{date}</option>
+      ))}
+    </select>
       
       
     </div>
