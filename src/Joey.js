@@ -28,7 +28,22 @@ function Joey() {
                 ))}
             </select>
             <br></br>
-            <iframe style={{ borderRadius: '35%', width: '400px', maxWidth: '55%', height: '140px', border: `${selectedColor} 21px dotted` }} width="560" height="315" src={colorSong[selectedColor]} frameborder="0" allowfullscreen></iframe>
+            <iframe
+            allow="fullscreen"
+            style={{
+                borderRadius: '35%',
+                width: '400px',
+                maxWidth: '55%',
+                height: '140px',
+                border: `${selectedColor} 21px dotted`
+            }}
+            width="560"
+            height="315"
+            src={colorSong[selectedColor]}
+            frameBorder="0"
+            ></iframe>
+
+
             <p>for development purposes</p>
             
             <iframe style={{ borderRadius: '25%', width: '400px', maxWidth: '90%', height: '240px', border: 'yellow 5px solid' }} width="560" height="315" src="https://www.youtube.com/embed/PRpiBpDy7MQ" frameborder="0" allowfullscreen></iframe>
