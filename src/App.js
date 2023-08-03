@@ -49,6 +49,7 @@ function App() {
   function handleLogout(){
     setUser(null);
   }
+  console.log(user)
 
 
   return (
@@ -60,7 +61,7 @@ function App() {
        
       <Route path="/section1" element={<Johnny onLogin={handleLogin} onLogout={handleLogout} />} />
       <Route path="/section2" element={<Joey />} />
-      <Route path="/section3" element={<Tommy/>}/>
+      <Route path="/section3" element={<Tommy user={user} />}/>
       <Route path="/section4" element={<Elijah/>}/>
       <Route path="/payment" element={<Payment/>}/>
       

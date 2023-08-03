@@ -6,18 +6,20 @@ function Tommy({ user }) {
   const generateWeek = () => {
     const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
     const hours = ["3 PM", "4 PM", "5 PM", "6 PM", "7 PM"];
-
+  
     const week = {};
-
+  
     for (const day of days) {
       week[day] = {};
       for (const hour of hours) {
-        week[day][hour] = false;
+        week[day][hour] = { reserved: false, user: null };
       }
     }
-
+  
     return week;
   };
+  
+  
 
   // Create an array to hold the week objects for all 52 weeks
   const allWeeks = Array.from({ length: 52 }, () => generateWeek());
@@ -147,16 +149,63 @@ function Tommy({ user }) {
   
   
   
- 
-  const [weeks, setWeeks] = useState(allWeeks);
+  console.log(user)
+  const [weeks, setWeeks] = useState(() => Array.from({ length: 52 }, generateWeek));
+
   const [currentWeekIndex, setCurrentWeekIndex] = useState(0); // Set to 0 initially
+  const [forceP, setForceP] = useState(true)
 
-  const handleReservation = (day, time) => {
-    const updatedWeeks = [...weeks];
-    updatedWeeks[currentWeekIndex][day][time] = !updatedWeeks[currentWeekIndex][day][time];
-    setWeeks(updatedWeeks);
+
+  const handleReservation2 = (day, time) => {
+    if (user) {
+      const updatedWeeks = [...weeks];
+      updatedWeeks[currentWeekIndex][day][time] = !updatedWeeks[currentWeekIndex][day][time];
+      setWeeks(updatedWeeks);
+      setForceP(true);
+    } else {
+      setForceP(false);
+    }
   };
+  
 
+
+
+const handleReservation = (day, time) => {
+  if (user) {
+    const updatedWeeks = [...weeks];
+    const reservation = updatedWeeks[currentWeekIndex][day][time];
+    console.log(typeof reservation)
+    if (typeof reservation === 'object') {
+      const updatedReservation = {
+        ...reservation,
+        reserved: !reservation.reserved,
+        user: reservation.reserved ? user.fullName : null,
+      };
+      console.log(user.fullName)
+
+
+      updatedWeeks[currentWeekIndex][day][time] = updatedReservation;
+      setWeeks(updatedWeeks);
+      setForceP(true);
+    } else {
+      console.error(`Invalid reservation object for ${day} - ${time}`);
+    }
+  } else {
+    setForceP(false);
+  }
+};
+
+  
+  // console.log(typeof reservation)
+  
+  
+  
+  
+  
+  
+  
+  
+  
   const switchToWeek = (index) => {
     setCurrentWeekIndex(index);
   };
@@ -166,7 +215,7 @@ function Tommy({ user }) {
       
       <h2 style={{ marginTop: '0%',marginBottom: '0%',backgroundColor:'gold',color:'black' }}>Click to schedule below</h2>
      
-    
+    {forceP ? null : <p style={{ color: 'yellow'}} >Please Sign-Up or Login to make reservation </p>}
     <h1 style={{marginTop: '0%',marginBottom: '0%', backgroundColor:'white',color:'#282c34',borderTop:' 15px solid #282c34',borderBottom:' 35px solid #282c34',borderRight:'45px solid #282c34',borderLeft:'45px solid #282c34', }}>{weekDates[currentWeekIndex].slice(0,-2)}</h1>
       
       <table style={{ backgroundColor: '#282c34', color: 'white', minWidth: '100%',maxWidth:'100%',paddingBottom:'5%' }}>
@@ -191,19 +240,21 @@ function Tommy({ user }) {
               <td>{time}</td>
               {Object.keys(weeks[currentWeekIndex]).map(day => (
                 <td key={`${day}-${time}`}>
-                  <button
-                    className={`reservation-button ${weeks[currentWeekIndex][day][time] ? 'reserved' : ''}`}
-                    onClick={() => handleReservation(day, time)}
-                    disabled={user && weeks[currentWeekIndex][day][time]}
-                    id='basement'
-                    style={{
-                      backgroundColor: weeks[currentWeekIndex][day][time] ? 'red' : 'green',
-                      color: 'white',
-                    }}
-                  >
-                    {weeks[currentWeekIndex][day][time] ? 'Reserved' : 'Available'}
-                  </button>
-                </td>
+                <button
+                  className={`reservation-button ${weeks[currentWeekIndex][day][time] ? 'reserved' : ''}`}
+                  onClick={() => handleReservation(day, time)}
+                  // disabled={!user }
+                  id='basement'
+                  style={{
+                    backgroundColor: weeks[currentWeekIndex][day][time].reserved ? 'red' : 'green',
+                    color: 'white',
+                  }}
+                >
+                   {weeks[currentWeekIndex][day][time].reserved ? (
+    user ? `Reserved by ${user.fullName}` : 'Reserved'
+  ) : 'Available'}
+                </button>
+              </td>
               ))}
             </tr>
           ))}
