@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import './App.css';
+import {useNavigate} from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 
 function Tommy({ user }) {
   // Define a function to generate the week objects
+  const navigate = useNavigate()
   const generateWeek = () => {
     const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
     const hours = ["3 PM", "4 PM", "5 PM", "6 PM", "7 PM"];
@@ -167,6 +170,9 @@ function Tommy({ user }) {
     }
   };
   
+  const handleOptionClick = (option) => {
+    navigate(`${option}`);
+  };
 
 
 
@@ -212,12 +218,12 @@ const handleReservation = (day, time) => {
 
   return (
     <div className="tommy">
-      
+       
       <h2 style={{ marginTop: '0%',marginBottom: '0%',backgroundColor:'gold',color:'black' }}>Click to schedule below</h2>
      
-    {forceP ? null : <p style={{ color: 'yellow'}} >Please Sign-Up or Login to make reservation </p>}
     <h1 style={{marginTop: '0%',marginBottom: '0%', backgroundColor:'white',color:'#282c34',borderTop:' 15px solid #282c34',borderBottom:' 35px solid #282c34',borderRight:'45px solid #282c34',borderLeft:'45px solid #282c34', }}>{weekDates[currentWeekIndex].slice(0,-2)}</h1>
-      
+    {forceP ? null :<> <p style={{marginTop: '0%', color: 'red',fontWeight:'bold'}} >Please Sign-Up or Login to make reservation <div  onClick={() => handleOptionClick('/section1')}>  <NavLink style={{ color: 'yellow',fontWeight:'bold'}}  exact to="/section1">Login/Sign-up</NavLink></div></p></>}
+   
       <table style={{ backgroundColor: '#282c34', color: 'white', minWidth: '100%',maxWidth:'100%',paddingBottom:'5%' }}>
         <thead>
         <tr>

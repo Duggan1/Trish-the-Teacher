@@ -54,9 +54,24 @@ function App() {
 
   return (
     <BrowserRouter>
+     <div className="App App-header">
+     <div style={{ display: 'flex', justifyContent: 'flex-end', textAlign: 'end', fontSize: '8px', width: '100%' }}>
+  {user ? (
+    <>
+      <h1>Hello {user.fullName}</h1>
+      <button onClick={handleLogout} style={{ marginLeft: '10px', minWidth: '10%' }} type="submit">
+        Log out
+      </button>
+    </>
+  ) : (
+    <p></p>
+  )}
+</div>
+
+</div>
+
     <NavBar /> 
-    <div className="App App-header">{user ? <h1>Hello {user.fullName}</h1>: <p></p>}</div>
-    <Routes>
+   <Routes>
       <Route path="/" element={<Home/>} />
        
       <Route path="/section1" element={<Johnny onLogin={handleLogin} onLogout={handleLogout} />} />
