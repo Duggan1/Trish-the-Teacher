@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import './App.css';
 import * as yup from 'yup';
+// import axios from 'axios'
+import {useNavigate} from 'react-router-dom'
+
+
 
 function Johnny({ onLogin }) {
+    const navigate = useNavigate()
     const [userName, setUserName] = useState('');
     const [fullName, setFullName] = useState('');
     const [password, setPassword] = useState('');
@@ -64,8 +69,20 @@ function Johnny({ onLogin }) {
                 parentsEmail,
                 parentsPhoneNumber
             };
-            setStudents([...students, newStudent]);
-            onLogin(newStudent)
+            fetch('/signup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newStudent),
+              }).then((r) => {
+                if (r.ok) {
+                    r.json().then(console.log('success'));
+                    setStudents([...students, newStudent]);
+                    onLogin(newStudent)
+                    navigate('/');
+          } else {
+            console.log('failure');
+          }
+        });
 
             // Reset the form fields after submission
             setUserName('')

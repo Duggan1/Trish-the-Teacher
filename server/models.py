@@ -1,19 +1,23 @@
-from sqlalchemy_serializer import SerializerMixin
+from flask_sqlalchemy import SQLAlchemy
+from flask_restful import Api, Resource
+from sqlalchemy import MetaData
 from sqlalchemy.orm import validates
 from sqlalchemy.ext.associationproxy import association_proxy
+from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.hybrid import hybrid_property
 
-from config import db, bcrypt
+metadata = MetaData(naming_convention={
+    "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
+    "uq": "uq_%(table_name)s_%(column_0_name)s",
+    "ck": "ck_%(table_name)s_%(constraint_name)s",
+    "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
+})
 
-from datetime import datetime, timedelta
-# from apscheduler.schedulers.background import BackgroundScheduler
-
-
-
+db = SQLAlchemy(metadata=metadata)
 
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
-    serialize_rules= ("-created_at", "-updated_at", "-memberships","-_password_hash")
+    serialize_rules= ("-created_at", "-updated_at","-_password_hash")
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String, unique=True)
@@ -94,7 +98,7 @@ class User(db.Model, SerializerMixin):
 
 class Session(db.Model, SerializerMixin):
     __tablename__ = 'Sessions'
-    serialize_rules= ( "created_at","-updated_at", "-user_id","-user._password_hash", "-user.id","-gym.address","-gym.phone","-gym.id","-gym_id")
+    serialize_rules= ( "created_at","-updated_at", "-user_id","-user._password_hash", "-user.id")
 
     id = db.Column(db.Integer, primary_key = True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'),nullable=False)
@@ -107,21 +111,6 @@ class Session(db.Model, SerializerMixin):
 
 
 
-
-class Gym(db.Model, SerializerMixin):
-    __tablename__ = 'gyms'
-    serialize_rules= ( "-updated_at", "-memberships","users","plans","created_at")
-
-    id = db.Column(db.Integer, primary_key = True)
-    city = db.Column(db.String)
-    address = db.Column(db.String)
-    phone = db.Column(db.String)
-
-    memberships = db.relationship('Membership', backref = 'gym', cascade = 'all, delete-orphan')
-    users = association_proxy('memberships', 'user')
-    plans = association_proxy('memberships', 'plan')
-    created_at = association_proxy('memberships', 'created_at')
-    
 
 
 
