@@ -185,7 +185,7 @@ const handleReservation = (day, time) => {
       const updatedReservation = {
         ...reservation,
         reserved: !reservation.reserved,
-        user: reservation.reserved ? user.fullName : null,
+        user: reservation.reserved ? user.fullname : null,
       };
       console.log(user.fullName)
 
@@ -257,7 +257,7 @@ const handleReservation = (day, time) => {
                   }}
                 >
                    {weeks[currentWeekIndex][day][time].reserved ? (
-    user ? `Reserved by ${user.fullName}` : 'Reserved'
+    user ? `Reserved by ${user.fullname}` : 'Reserved'
   ) : 'Available'}
                 </button>
               </td>

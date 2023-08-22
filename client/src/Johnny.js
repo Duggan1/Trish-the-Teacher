@@ -106,6 +106,37 @@ function Johnny({ onLogin }) {
         }
     };
 
+    const [username, setUsername] = useState("")
+    const [_password, set_password] = useState("")
+    const [isIncorrect, setIsIncorrect] = useState(false)
+
+    const toggleIncorrect =()=>{
+        setIsIncorrect(!isIncorrect)
+    }
+    function handleSubmit2(e) {
+        e.preventDefault();
+        fetch("/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username, _password }),
+        }).then((r) => {
+            if (r.ok) {
+                r.json().then((user) => {
+                    console.log(user)
+                    onLogin(user)
+                    navigate('/') })
+  
+                
+            }
+            else {
+                toggleIncorrect()
+            }
+          });
+      }
+      
+
     const [showVideo, setShowVideo] = useState(false);
 
     const toggleVideoVisibility = () => {
@@ -190,11 +221,29 @@ function Johnny({ onLogin }) {
 
 
 
-            </form> : <form style={{textAlign:'right',color:'white', marginRight:'35%',paddingBottom: '15%'}} onSubmit={handleSubmit}>
-                <label>UserName:</label>
-                <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)} required /><br></br>
-                <label>Password:</label>
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required /><br></br><button style={{marginRight:'17%',minWidth:'10%'}} type="submit">Login</button></form> 
+            </form> : 
+            // <form >
+            <form style={{textAlign:'right',color:'white', marginRight:'35%',paddingBottom: '15%'}} onSubmit={handleSubmit2}>
+            <input
+              type="text"
+              value={username}
+              placeholder="Enter Username here "
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <br></br>
+            <input
+            type="password"
+            value={_password}
+            placeholder="Enter Password here "
+            onChange={(e) => set_password(e.target.value)}
+          /><br></br>
+            <button type="submit">Login</button>
+            {isIncorrect ? <div>
+                <h2>Username or Password Invalid, Please Try Again!</h2>
+            </div>: null}
+          </form>
+                
+                
                 }
 
 

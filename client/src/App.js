@@ -49,6 +49,8 @@ function App() {
   function handleLogout(){
     setUser(null);
   }
+  // console.log(user.fullName)
+  // console.log(user.fullname)
   console.log(user)
 
 
@@ -58,7 +60,7 @@ function App() {
      <div style={{ display: 'flex', justifyContent: 'flex-end', textAlign: 'end', fontSize: '8px', width: '100%' }}>
   {user ? (
     <>
-      <h1>Hello {user.fullName}</h1>
+      <h1>Hello {user.fullname}{user.fullName}</h1>
       <button onClick={handleLogout} style={{ marginLeft: '10px', minWidth: '10%' }} type="submit">
         Log out
       </button>
@@ -70,7 +72,7 @@ function App() {
 
 </div>
 
-    <NavBar /> 
+    <NavBar user={user} /> 
    <Routes>
       <Route path="/" element={<Home/>} />
        

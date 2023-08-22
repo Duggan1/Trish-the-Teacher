@@ -5,7 +5,7 @@ import {useNavigate} from 'react-router-dom'
 
 
 
-function NavBar() {
+function NavBar({ user }) {
   const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate()
 
@@ -38,7 +38,8 @@ function NavBar() {
         {/* Dropdown Menu */}
         {showDropdown && (
           <div style={{backgroundColor:'gold',padding:'2%',minWidth:'100%'}} className="dropdown-menu">
-            <div className='swm2' onClick={() => handleOptionClick('/section1')}>  <NavLink className=' color-blue'  exact to="/section1">Login/Sign-up</NavLink></div>
+            {user ? ( <p></p> ):
+            <div className='swm2' onClick={() => handleOptionClick('/section1')}>  <NavLink className=' color-blue'  exact to="/section1">Login/Sign-up</NavLink></div> }
             <div className='swm'  onClick={() => handleOptionClick('/section2')}><NavLink style={{textShadow:'0px 1px 8px rgb(0, 0, 0)'}} className='color-yellow' exact to="/section2">Videos</NavLink></div>
             <div className='swm'  onClick={() => handleOptionClick('/section3')}><NavLink className='color-green' exact to="/section3">Schedule</NavLink></div>
             <div className='swm'  onClick={() => handleOptionClick('/section4')}><NavLink className='color-purple' exact to="/section4">Experience </NavLink></div>

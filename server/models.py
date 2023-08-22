@@ -27,8 +27,8 @@ class User(db.Model, SerializerMixin):
     fullname = db.Column(db.String, unique=True)
     age = db.Column(db.Integer,nullable=False)
     school = db.Column(db.String, unique=True)
-    bestSubject = db.Column(db.String, unique=True)
-    worstSubject = db.Column(db.String, unique=True)
+    bestSubject = db.Column(db.String, nullable=False)
+    worstSubject = db.Column(db.String, nullable=False)
     email = db.Column(db.String,nullable=False)
     phone = db.Column(db.String,nullable=False)
     
