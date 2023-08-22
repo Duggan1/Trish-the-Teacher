@@ -1,8 +1,8 @@
-"""Initial migration
+"""message
 
-Revision ID: 2388edafd92d
+Revision ID: eec7e502fa92
 Revises: 
-Create Date: 2023-08-22 12:47:12.486372
+Create Date: 2023-08-22 15:26:53.424969
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '2388edafd92d'
+revision = 'eec7e502fa92'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -22,21 +22,17 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('username', sa.String(), nullable=True),
     sa.Column('_password_hash', sa.String(), nullable=False),
-    sa.Column('fullname', sa.String(), nullable=True),
+    sa.Column('fullname', sa.String(), nullable=False),
     sa.Column('age', sa.Integer(), nullable=False),
     sa.Column('school', sa.String(), nullable=True),
     sa.Column('bestSubject', sa.String(), nullable=True),
-    sa.Column('worstSubject', sa.String(), nullable=True),
+    sa.Column('worstSubject', sa.String(), nullable=False),
     sa.Column('email', sa.String(), nullable=False),
     sa.Column('phone', sa.String(), nullable=False),
     sa.Column('created_at', sa.DateTime(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('bestSubject'),
-    sa.UniqueConstraint('fullname'),
-    sa.UniqueConstraint('school'),
-    sa.UniqueConstraint('username'),
-    sa.UniqueConstraint('worstSubject')
+    sa.UniqueConstraint('username')
     )
     op.create_table('Sessions',
     sa.Column('id', sa.Integer(), nullable=False),
