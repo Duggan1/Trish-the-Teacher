@@ -1,13 +1,16 @@
-from flask import Flask
-from flask_cors import CORS
+
+from config import app, api,db, bcrypt
 from flask import make_response, redirect, request, session, jsonify
 from flask_restful import Resource, Api
-from flask_bcrypt import Bcrypt
-from config import app, db, api
+
 from models import User, Session 
+# app = Flask(__name__)
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'  # Your database URI
+# db = SQLAlchemy(app)
 
 
-bcrypt = Bcrypt(app)
+
+
 
 
 
