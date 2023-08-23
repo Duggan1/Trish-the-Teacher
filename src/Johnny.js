@@ -167,7 +167,7 @@ function Johnny({ onLogin }) {
 
         { showVideo ? 
             <form style={{textAlign:'right',color:'white', marginRight:'35%'}} onSubmit={handleSubmit}>
-                <label>UserName:</label>
+                <label>Username:</label>
                 <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)} required /><br></br>
                 <label>Password:</label>
                 <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} required /><br></br>
@@ -224,20 +224,22 @@ function Johnny({ onLogin }) {
             </form> : 
             // <form >
             <form style={{textAlign:'right',color:'white', marginRight:'35%',paddingBottom: '15%'}} onSubmit={handleSubmit2}>
+            <label >Username:</label>
             <input
               type="text"
               value={username}
-              placeholder="Enter Username here "
+              placeholder=""
               onChange={(e) => setUsername(e.target.value)}
             />
             <br></br>
+            <label >Password:</label>
             <input
             type="password"
             value={_password}
-            placeholder="Enter Password here "
+            placeholder=""
             onChange={(e) => set_password(e.target.value)}
           /><br></br>
-            <button type="submit">Login</button>
+            <button style={{marginRight:'17%',minWidth:'10%'}}  type="submit">Login</button>
             {isIncorrect ? <div>
                 <h2>Username or Password Invalid, Please Try Again!</h2>
             </div>: null}
