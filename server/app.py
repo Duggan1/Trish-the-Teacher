@@ -14,7 +14,7 @@ from models import User, Session
 
 
 
-YOUR_DOMAIN = 'http://localhost:5555'
+YOUR_DOMAIN = 'https://trishtheteacher.com/5555'
 class Users(Resource):
     def get(self):
         users = User.query.all()
