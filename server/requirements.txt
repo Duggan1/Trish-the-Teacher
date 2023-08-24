@@ -5,6 +5,7 @@ flask_cors
 flask_restful
 flask_bcrypt
 sqlalchemy
+sqlalchemy_serializer
 greenlet          
 gunicorn 
 secret         
