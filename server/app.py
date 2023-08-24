@@ -14,7 +14,11 @@ from models import User, Session
 
 
 
-YOUR_DOMAIN = 'https://trishtheteacher.com/5555'
+class Root(Resource):
+    def get(self):
+        return "Welcome to the Teacher Backend!"
+
+api.add_resource(Root, '/')  
 class Users(Resource):
     def get(self):
         users = User.query.all()
