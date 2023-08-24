@@ -115,25 +115,30 @@ function Johnny({ onLogin }) {
     }
     function handleSubmit2(e) {
         e.preventDefault();
-        fetch("/login", {
+        fetch("https://t-t-teacher-backend.onrender.com/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({ username, _password }),
-        }).then((r) => {
+            })
+            .then((r) => {
             if (r.ok) {
-                r.json().then((user) => {
-                    console.log(user)
-                    onLogin(user)
-                    navigate('/') })
-  
-                
+                return r.json();
+            } else {
+                throw new Error("Login failed");
             }
-            else {
-                toggleIncorrect()
-            }
-          });
+            })
+            .then((user) => {
+            console.log(user);
+            onLogin(user);
+            navigate("/");
+            })
+            .catch((error) => {
+            console.error("Login error:", error);
+            toggleIncorrect();
+            });
+
       }
       
 
