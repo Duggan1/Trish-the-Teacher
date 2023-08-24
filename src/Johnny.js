@@ -69,7 +69,7 @@ function Johnny({ onLogin }) {
                 parentsEmail,
                 parentsPhoneNumber
             };
-            fetch('/signup', {
+            fetch('https://t-t-teacher-backend.onrender.com/signup', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(newStudent),
