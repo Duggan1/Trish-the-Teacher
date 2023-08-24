@@ -1,6 +1,7 @@
 Flask             
 Flask-Migrate    
 Flask-SQLAlchemy  
+flask_cors
 greenlet          
 gunicorn          
 itsdangerous      
